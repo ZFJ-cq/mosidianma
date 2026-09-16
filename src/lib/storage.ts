@@ -1,5 +1,6 @@
 // localStorage 进度与设置持久化。
 // 保存：每关最佳成绩、最佳正确率、星级、解锁与完成状态；以及全局播放设置。
+import { LEVELS } from './levels';
 
 export interface LevelRecord {
   bestScore: number; // 最佳得分
@@ -96,8 +97,10 @@ export function submitResult(
     completed: rec.completed || passed,
     unlocked: rec.unlocked || passed,
   };
-  // 解锁下一关
-  if (passed && levels[id + 1]) {
+  // 解锁下一关：只要达到通关正确率，就创建（或解锁）下一关记录。
+  // 注意：新存档里下一关记录可能尚不存在（levels[id+1] 为 undefined），
+  // 因此不能依赖其“已存在”才解锁，否则新玩家通关后无法进入下一关。
+  if (passed && id + 1 <= LEVELS.length) {
     levels[id + 1] = { ...getLevelRecord(data, id + 1), unlocked: true };
   }
 
