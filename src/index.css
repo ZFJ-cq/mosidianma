@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* 卡片容器 */
+  .card {
+    @apply bg-white rounded-2xl shadow-sm border border-slate-200 p-4;
+  }
+  /* 主按钮 */
+  .btn {
+    @apply px-4 py-2 rounded-xl bg-sky-500 text-white font-medium active:scale-95 transition disabled:opacity-50 disabled:active:scale-100;
+  }
+  /* 次按钮 */
+  .btn-ghost {
+    @apply px-4 py-2 rounded-xl bg-slate-100 text-slate-700 font-medium active:scale-95 transition;
+  }
+  /* 选项按钮 */
+  .opt {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl border border-slate-200 bg-white text-left font-medium active:scale-[0.98] transition;
+  }
+  .opt-correct {
+    @apply border-green-500 bg-green-50 text-green-700;
+  }
+  .opt-wrong {
+    @apply border-red-500 bg-red-50 text-red-700;
+  }
+  .opt-dim {
+    @apply opacity-40;
+  }
+  /* 摩斯电码展示 */
+  .morse-output {
+    @apply font-mono text-lg tracking-widest break-words bg-slate-50 rounded-xl p-3;
+  }
+  .morse-big {
+    @apply font-mono text-2xl leading-relaxed tracking-widest break-words bg-slate-900 text-emerald-300 rounded-xl p-4 text-center;
+  }
+  .hint {
+    @apply text-xs text-slate-500;
+  }
+  .play-big {
+    @apply px-6 py-4 rounded-2xl bg-sky-500 text-white text-lg font-semibold active:scale-95 transition;
+  }
+  .label {
+    @apply text-sm font-medium text-slate-700 mb-1 block;
+  }
+  .input {
+    @apply w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring-2 focus:ring-sky-400;
+  }
+}
